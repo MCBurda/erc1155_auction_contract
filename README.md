@@ -6,11 +6,13 @@ The ERC1155 smart contract standard is used to host several fungible and non-fun
 
 The image below describes the interactions of stakeholders with the contract.
 
-![](<./Ethereum ERC1155 Auction Diagram.png>)
+![](<./Ethereum ERC1155 Auction Diagram.jpeg>)
 
 In its current state, the auction contract adds two new functions to the ERC1155 contract:
 
-**Bid() Function:**
+# Functions:
+
+**Bid() Function:** \n
 The first extension is the **bid() function**, which allows players to place one bid for one item by sending an
 Ether transaction to the smart contract with an id for the bid function to identify the item they are bidding
 on. The bid() function can only be executed by outside parties before the end time of the auction. The
@@ -32,7 +34,7 @@ items. Bidders, whose bids get overbid, get their money back, but pay the gas fe
 incentivises high bids from the start. The drawback of this method is the fact that if many items are being
 auctioned, the reordering of the list will be very expensive in terms of gas and might deter bidders.
 
-**Distribute Function:**
+**Distribute Function:** \n
 The second extension to the ERC1155 contract is the distribute() function, which is used to distribute the
 tokens to the auction winners and the funds raised to the game developer after the auction has ended. The
 function can be only called after the auction. This requirement is enforced by using the “require()”
@@ -59,5 +61,5 @@ If you do not know how Solidity works, please read this great resource on the to
 https://docs.soliditylang.org/en/v0.8.0/
 
 And this resource on Ethereum:
-
+https://ethereum.org/en/whitepaper/
 
