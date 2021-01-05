@@ -6,13 +6,16 @@ The ERC1155 smart contract standard is used to host several fungible and non-fun
 
 The image below describes the interactions of stakeholders with the contract.
 
-![](<./Ethereum ERC1155 Auction Diagram.jpeg>)
+![](<./Ethereum ERC1155 Auction Diagram.jpg>)
 
-In its current state, the auction contract adds two new functions to the ERC1155 contract:
+<br />
 
-# Functions:
+# Functions: 
 
-**Bid() Function:** \n
+In its current state, the auction contract adds two new functions to the ERC1155 contract: <br />
+
+
+**Bid() Function:** <br />
 The first extension is the **bid() function**, which allows players to place one bid for one item by sending an
 Ether transaction to the smart contract with an id for the bid function to identify the item they are bidding
 on. The bid() function can only be executed by outside parties before the end time of the auction. The
@@ -21,7 +24,7 @@ bid() function enforces this restriction using the “require()” function in S
 sending address. The bidder incurs the gas fee. Moreover, the contract will throw an error and revert its
 last actions if the item “id” passed in the transaction is not within the range of valid ids, the message value
 is below the initial item price set by the auction owner, or if a bid exists for all available items and the
-new bid is lower than the lowest bid. If none of the requirements are breached, the bid is accepted.
+new bid is lower than the lowest bid. If none of the requirements are breached, the bid is accepted. <br />
 
 Since an ERC1155 contract can hold several non-fungible tokens of the same class, the bidding for these
 tokens must be done in a way that allows the auction smart contract to sell all available tokens to bidders.
@@ -34,7 +37,7 @@ items. Bidders, whose bids get overbid, get their money back, but pay the gas fe
 incentivises high bids from the start. The drawback of this method is the fact that if many items are being
 auctioned, the reordering of the list will be very expensive in terms of gas and might deter bidders.
 
-**Distribute Function:** \n
+**Distribute Function:** <br />
 The second extension to the ERC1155 contract is the distribute() function, which is used to distribute the
 tokens to the auction winners and the funds raised to the game developer after the auction has ended. The
 function can be only called after the auction. This requirement is enforced by using the “require()”
@@ -47,19 +50,21 @@ gas fee). This allows the players to pool their funds and activate the contract 
 refuses to do so himself or is unable to (e.g. after losing private key or his life).
 
 
-**Linked List Data Structure used in the Contract:**
+**Linked List Data Structure used in the Contract:** <br />
 
-![](<./Linked list diagram step 1.png>)
+![](<./Linked list diagram step 1.png>) <br />
 
 ![](<./Linked list diagram step 2.png>)
 
 
-This contract extends the ERC1155 contract published and audited by OpenZeppelin. The documentation of which can be found here: 
+# Helpful Links:
+
+This contract extends the ERC1155 contract published and audited by OpenZeppelin. The documentation of which can be found here: <br />
 https://docs.openzeppelin.com/contracts/3.x/erc1155
 
-If you do not know how Solidity works, please read this great resource on the topic:
+If you do not know how Solidity works, please read this great resource on the topic: <br />
 https://docs.soliditylang.org/en/v0.8.0/
 
-And this resource on Ethereum:
+And this resource on Ethereum: <br />
 https://ethereum.org/en/whitepaper/
 
